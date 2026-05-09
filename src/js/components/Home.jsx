@@ -1,28 +1,57 @@
 import React from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import { Navbar } from "./Navbar"; 
+import { Jumbotron } from "./Jumbotron"; 
+import { Footer } from "./Footer";
+import { Card } from "./Card"; 
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-            
+export const Home = () => {
+  
+  const cardsData = [
+    {
+      title: "Card 1",
+      description: "Descripción de la primera carta.",
+      image: "https://via.placeholder.com/500x325",
+      buttonLabel: "Find Out More!",
+      buttonUrl: "#"
+    },
+    {
+      title: "Card 2",
+      description: "Descripción de la segunda carta.",
+      image: "https://via.placeholder.com/500x325",
+      buttonLabel: "Find Out More!",
+      buttonUrl: "#"
+    },
+    {
+      title: "Card 3",
+      description: "Descripción de la tercera carta.",
+      image: "https://via.placeholder.com/500x325",
+      buttonLabel: "Find Out More!",
+      buttonUrl: "#"
+    },
+    {
+      title: "Card 4",
+      description: "Descripción de la cuarta carta.",
+      image: "https://via.placeholder.com/500x325",
+      buttonLabel: "Find Out More!",
+      buttonUrl: "#"
+    }
+  ];
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  return (
+    <>
+      <Navbar />
+      <Jumbotron />
+      <div className="container px-lg-5">
+        <div className="row">
+          {cardsData.map((item, index) => (
+            <Card key={index} item={item} />
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;
